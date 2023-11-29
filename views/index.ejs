@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="page-container">
+      <h1><%= title %></h1>
+      <h2>Welcome to <%= title %></h2>
+      <% if (messages.length === 0) { %>
+       <p>There are no messages yet</p>
+      <% } %>
+      <a class="submit-btn" href="/new">Submit a new message</a>
+      <ul class="messages-container">
+        <% messages.forEach(message => { %>
+         <li class="message">
+          <div class="message-header">
+            <span><%= message.user %></span>
+            <span><%= message.added %></span>
+          </div>
+          <div class="message-content">
+            <p><%= message.text %></p>
+          </div>
+         </li>
+        <% }) %>
+      </ul>
+      <a class="submit-btn" href="/new">Submit a new message</a>
+    </div>
+  </body>
+</html>

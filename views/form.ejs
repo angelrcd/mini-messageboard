@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New message</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="page-container">
+    <h1>New message</h1>
+    <form action="/new" method="post">
+      <label>
+        Username
+        <input name="username" type="text" value="Anonymous" required>
+      </label>
+      <label>
+        Comment
+        <textarea name="text" id="text" cols="30" rows="10" required></textarea>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <a class="cancel-btn" href="/">Cancel</a>
+  </div>
+</body>
+</html>

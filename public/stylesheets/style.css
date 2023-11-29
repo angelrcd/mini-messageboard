@@ -1,0 +1,95 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+@font-face {
+  font-family: proxima-nova;
+  src: url("/fonts/proxima-nova.otf") format("opentype");
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: #EEF2FF;
+  font-family: proxima-nova, 'Times New Roman', Times, serif;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+.messages-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.message {
+  background-color: #D6DAF0;
+  margin-bottom: 6px;
+  padding: 0.6rem;
+  border-radius: 3px;
+}
+
+.message-header span:first-child {
+  margin-right: 1rem;
+}
+
+.message-content {
+  padding: 1rem;
+}
+
+form, label {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  gap: 1rem;
+  margin: 0 2rem;
+}
+
+label {
+  gap: 0.2rem;
+}
+
+form button {
+  display: block;
+}
+
+.cancel-btn {
+  display: block;
+  margin-right: 2rem;
+  text-align: end;
+  margin-top: 1rem;
+}
