@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const MessageModel = require("../models/message");
 
 const messages = [
   {
@@ -15,8 +16,13 @@ const messages = [
 ];
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mini Messageboard', messages: messages });
+router.get('/', async function(req, res, next) {
+  try {
+    const messages = await getMessages();
+    res.render('index', { title: 'Mini Messageboard', messages: messages });
+  } catch (e) {
+    res.send("aaa");
+  }
 });
 
 router.get('/new', (req, res) => {
@@ -29,5 +35,10 @@ router.post('/new', (req, res) => {
 
   res.redirect('/');
 })
+
+async function getMessages(){
+  const messages = await MessageModel.find().exec();
+  return messages;
+}
 
 module.exports = router;
