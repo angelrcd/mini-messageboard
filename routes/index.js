@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const MessageModel = require("../models/message");
 
 const messages = [
@@ -21,6 +21,7 @@ router.get('/', async function(req, res, next) {
     const messages = await getMessages();
     res.render('index', { title: 'Mini Messageboard', messages: messages });
   } catch (e) {
+    // TODO proper error handling
     res.send("aaa");
   }
 });
@@ -30,11 +31,16 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/new', async (req, res) => {
-  const {username, text} = req.body;
-  // messages.push({text: text, user: username, added: new Date()});
-  await postMessage({text: text, user: username, added: new Date()});
+  try {
+    const {username, text} = req.body;
+    // messages.push({text: text, user: username, added: new Date()});
+    await postMessage({text: text, user: username, added: new Date()});
+    res.redirect('/'); 
+  } catch (e) {
+    // TODO proper error handling
+    res.send("aaa")
+  }
 
-  res.redirect('/');
 })
 
 async function getMessages(){
