@@ -1,6 +1,7 @@
-const express = require('express');
+// const express = require('express');
+import express from 'express';
 const router = express.Router();
-const MessageModel = require("../models/message");
+import MessageModel from "../models/message.js";
 
 const messages = [
   {
@@ -53,4 +54,4 @@ async function postMessage(message){
   await newMessage.save();
 }
 
-module.exports = router;
+export default router;

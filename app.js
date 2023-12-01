@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const mongoose = require("mongoose");
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import mongoose from 'mongoose';
 
-var indexRouter = require('./routes/index');
+import indexRouter from './routes/index.js';
 
-var app = express();
+const app = express();
 
 // Set up mongoose
 mongoose.set("strictQuery", false);
@@ -18,14 +18,14 @@ async function main() {
 }
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', "./views");
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("./public"));
 
 app.use('/', indexRouter);
 
@@ -45,4 +45,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;

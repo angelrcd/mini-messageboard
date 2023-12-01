@@ -2,9 +2,10 @@
   "name": "message-board",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "start": "node --env-file=.env ./bin/www",
-    "watch": "node --env-file=.env --watch ./bin/www"
+    "start": "node --env-file=.env ./bin/www.js",
+    "watch": "node --env-file=.env --watch ./bin/www.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
