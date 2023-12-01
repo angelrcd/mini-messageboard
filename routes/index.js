@@ -29,9 +29,10 @@ router.get('/new', (req, res) => {
   res.render('form')
 })
 
-router.post('/new', (req, res) => {
+router.post('/new', async (req, res) => {
   const {username, text} = req.body;
-  messages.push({text: text, user: username, added: new Date()});
+  // messages.push({text: text, user: username, added: new Date()});
+  await postMessage({text: text, user: username, added: new Date()});
 
   res.redirect('/');
 })
@@ -39,6 +40,11 @@ router.post('/new', (req, res) => {
 async function getMessages(){
   const messages = await MessageModel.find().exec();
   return messages;
+}
+
+async function postMessage(message){
+  const newMessage = new MessageModel(message);
+  await newMessage.save();
 }
 
 module.exports = router;
