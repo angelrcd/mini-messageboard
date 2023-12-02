@@ -69,6 +69,10 @@ h1, h2, h3 {
   padding: 1rem;
 }
 
+.submit-btn {
+  padding-bottom: 1rem;
+}
+
 form, label {
   display: flex;
   flex-direction: column;
@@ -85,6 +89,10 @@ label {
 
 form button {
   display: block;
+}
+
+textarea {
+  resize: vertical;
 }
 
 .cancel-btn {
