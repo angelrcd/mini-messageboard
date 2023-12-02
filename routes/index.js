@@ -32,14 +32,14 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/new', async (req, res) => {
+  const {username, text} = req.body;
   try {
-    const {username, text} = req.body;
-    // messages.push({text: text, user: username, added: new Date()});
     await postMessage({text: text, user: username, added: new Date()});
     res.redirect('/'); 
   } catch (e) {
     // TODO proper error handling
-    res.send("aaa")
+    console.log({ username, text });
+    res.render("form", { username, text });
   }
 
 })
