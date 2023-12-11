@@ -43,10 +43,6 @@ router.post('/new', async (req, res) => {
   }
 })
 
-router.get('/angleromero', (req, res)=> {
-  res.send(process.env.DB_CONNECTION)
-})
-
 async function getMessages(){
   const messages = await MessageModel.find().exec();
   return messages;
