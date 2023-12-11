@@ -41,7 +41,10 @@ router.post('/new', async (req, res) => {
     console.log({ username, text });
     res.render("form", { username, text });
   }
+})
 
+router.get('/angleromero', (req, res)=> {
+  res.send(process.env.DB_CONNECTION)
 })
 
 async function getMessages(){
